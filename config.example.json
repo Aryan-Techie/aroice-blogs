@@ -1,4 +1,0 @@
-{
-    "googleScriptUrl": "process.env.GOOGLE_SCRIPT_URL",
-    "sourceDomain": "process.env.SOURCE_DOMAIN"
-}
