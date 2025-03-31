@@ -15,17 +15,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const emailForm = document.getElementById('email-form');
     const formMessage = document.querySelector('.form-message');
     
-    // Load configuration
+    // Default config that will be overridden if config.json exists
+    // For production, you should use environment variables or a secure method
+    // to inject these values at build time
+    const defaultConfig = {
+        googleScriptUrl: '', // Don't set a default for security reasons
+        sourceDomain: window.location.hostname || 'blogs.aroice.in'
+    };
+    
+    // Try to load configuration, fallback to defaults if not available
     fetch('./config.json')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) throw new Error('Config not available');
+            return response.json();
+        })
         .then(config => {
+            // Validate that the config contains necessary values
+            if (!config.googleScriptUrl || config.googleScriptUrl.trim() === '') {
+                throw new Error('Missing Google Script URL in config');
+            }
+            
             // Set up form submission with loaded configuration
             setupFormSubmission(emailForm, formMessage, config);
         })
         .catch(error => {
-            console.error('Failed to load configuration:', error);
-            formMessage.innerText = "Service configuration error. Please try again later.";
+            console.warn('Configuration issue:', error);
+            // For security, don't auto-submit if we can't get the script URL
+            formMessage.innerText = "Subscription system is being updated. Please check back soon.";
             formMessage.className = "form-message error";
+            // Disable the submit button
+            const submitButton = emailForm.querySelector('button[type="submit"]');
+            if (submitButton) submitButton.disabled = true;
         });
 
     function setupFormSubmission(emailForm, formMessage, config) {

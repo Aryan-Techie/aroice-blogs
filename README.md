@@ -30,6 +30,7 @@
        "sourceDomain": "YOUR_DOMAIN_HERE"
      }
      ```
+   - **IMPORTANT**: Never commit your `config.json` file as it contains sensitive information
 
 3. **Deploy to your web server**
    - Upload all files to your hosting provider
