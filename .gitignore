@@ -81,3 +81,9 @@ public/
 *.bak
 *.swp
 *~
+
+# Configuration with sensitive information
+config.json
+
+# Test files
+*test*.html

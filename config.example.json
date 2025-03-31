@@ -1,0 +1,9 @@
+{
+    "googleScriptUrl": "YOUR_GOOGLE_SCRIPT_URL_HERE",
+    "sourceDomain": "blogs.aroice.in",
+    "_comments": {
+        "googleScriptUrl": "Must be a valid Google Apps Script deployment URL. Should start with https://script.google.com/macros/s/ and end with /exec",
+        "sourceDomain": "Your website domain - used for tracking subscription sources",
+        "testing": "Use advanced-test.html to test your Google Sheets integration"
+    }
+}
