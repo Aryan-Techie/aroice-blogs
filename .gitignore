@@ -81,3 +81,6 @@ public/
 *.bak
 *.swp
 *~
+
+# Sensitive files
+config.json
