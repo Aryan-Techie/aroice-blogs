@@ -56,8 +56,18 @@ The subscription form uses a hidden iframe technique to submit data to Google Sh
 - **improved-google-script.js** - Code for Google Apps Script
 - **SETUP-NOTES.md** - Detailed setup and maintenance guide
 
+
+## 📬 Contact
+
+- 📧 Email: [aryan@aroice.in]
+- 💼 LinkedIn: [Aryan Jangra](https://linkedin.com/in/aryantechie)
+
+- 📷 Instagam: [@aryantechie](https://instagram.com/aryantechie)
+- 🐦 Twitter: [@aryantechie](https://twitter.com/aryantechie)
+
+
 ## 📝 License
 
 This project is licensed under the [MIT License](LICENSE).
 
-Created by [Aroice](https://aroice.in) - feel free to contact us!
+Created with ❤️ by [Aroice](https://aroice.in) - feel free to contact us!
