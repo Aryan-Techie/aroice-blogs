@@ -137,11 +137,10 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <div class="container">        <header>
             <div class="logo">
                 <a href="https://aroice.in" title="Visit Aroice.in">
-                    <h1>AROICE<span> BLOGS</span></h1>
+                    <h1>AROICE<span> BLOG</span></h1>
                 </a>
             </div>
         </header>
@@ -153,59 +152,28 @@
                 </div>
                 
                 <h1 class="thank-you-title">Thank you for subscribing!</h1>
-                
-                <p class="thank-you-text">
+                  <p class="thank-you-text">
                     You've taken an important step toward finding clarity through new ideas, tools, & perspectives.
                     We're excited to have you join The Insight Journal community!
                 </p>
                 
-                <a href="https://insight.aroice.in?utm=thankyou" class="button">Explore The Insight Archive</a>
+                <a href="https://insight.aroice.in?utm_source=thankyou" class="button">Explore The Insight Archive</a>
+                  <div id="countdown">Redirecting to The Insight Journal in <span id="timer">16</span> seconds...</div>
                 
-                <div id="countdown">Redirecting to homepage in <span id="timer">10</span> seconds...</div>
-                
-                <div class="what-to-expect">
-                    <h3>💡 What You'll Find Inside The Insight Archive:</h3>
+                <div class="footer-section">
+                    <h2 class="footer-title">INSIGHT</h2>
                     
-                    <div class="expectation-item">
-                        <div class="bullet"></div>
-                        <div>Insights that cut through noise & bring clarity</div>
+                    <p>Built for those who seek clarity in a chaotic world.</p>
+                    
+                    <div class="footer-links">
+                        <a href="https://blogs.aroice.in">Website</a>
+                        <a href="https://x.com/realaroice">Twitter</a>
+                        <a href="https://youtube.com/@aroice">YouTube</a>
                     </div>
                     
-                    <div class="expectation-item">
-                        <div class="bullet"></div>
-                        <div>Mental models that stick - for smarter, precise decisions</div>
+                    <div class="copyright">
+                        The Insight Journal<br><br>© 2025 <a href="http://aroice.in" style="text-decoration: none; color: #9ea19f;">AROICE</a><br>All rights reserved.
                     </div>
-                    
-                    <div class="expectation-item">
-                        <div class="bullet"></div>
-                        <div>Simple systems to get more done without burning out</div>
-                    </div>
-                    
-                    <div class="expectation-item">
-                        <div class="bullet"></div>
-                        <div>Tech workflows that make your life feel lighter</div>
-                    </div>
-                    
-                    <div class="expectation-item">
-                        <div class="bullet"></div>
-                        <div>and much more...</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h2 class="footer-title">INSIGHT</h2>
-                
-                <p>Built for those who seek clarity in a chaotic world.</p>
-                
-                <div class="footer-links">
-                    <a href="https://blogs.aroice.in">Website</a>
-                    <a href="https://x.com/realaroice">Twitter</a>
-                    <a href="https://youtube.com/@aroice">YouTube</a>
-                </div>
-                
-                <div class="copyright">
-                    The Insight Journal<br><br>© 2025 <a href="http://aroice.in" style="text-decoration: none; color: #9ea19f;">AROICE</a><br>All rights reserved.
                 </div>
             </div>
         </main>
@@ -213,17 +181,16 @@
     
     <script>
         // Countdown timer for redirection
-        let seconds = 10;
+        let seconds = 16;
         const timerElement = document.getElementById('timer');
         
         // Start countdown
         const countdown = setInterval(function() {
             seconds--;
             timerElement.textContent = seconds;
-            
-            if (seconds <= 0) {
+              if (seconds <= 0) {
                 clearInterval(countdown);
-                window.location.href = 'index.html'; // Redirect to homepage
+                window.location.href = 'https://insight.aroice.in'; // Redirect to The Insight Journal
             }
         }, 1000);
         
