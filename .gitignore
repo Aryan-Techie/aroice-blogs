@@ -87,3 +87,8 @@ config.json
 
 # Test files
 *test*.html
+
+
+
+#custom
+email-confirmation.html
