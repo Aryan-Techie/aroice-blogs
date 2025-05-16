@@ -172,6 +172,46 @@
   }
   window.addEventListener('DOMContentLoaded', setupSubscribeTapTrigger);
 
+  // 3. Long press on logo, footer, or subscribe button(s)
+  function setupLongPressTrigger() {
+    let longPressTimer = null;
+    let longPressTarget = null;
+    // Try logo first
+    const logo = document.querySelector('.logo, header .logo, h1, [title*="Aroice"], [title*="AROICE"]');
+    // Try all possible footer elements
+    const footers = Array.from(document.querySelectorAll('footer, .footer, #footer, [id*="footer" i], [class*="footer" i], [title*="footer" i], [data-footer], [data-section="footer"]'));
+    // Try subscribe button(s)
+    const subscribeBtns = Array.from(document.querySelectorAll('button.sib-form-block__button, .sib-form-block__button, button[type="submit"]'));
+    function addLongPress(el) {
+      if (!el) return;
+      let moved = false;
+      el.addEventListener('touchstart', function (e) {
+        if (portalActive) return;
+        moved = false;
+        longPressTarget = el;
+        longPressTimer = setTimeout(() => {
+          if (!moved && !(window.getSelection && window.getSelection().toString())) {
+            triggerTunnelPortal();
+          }
+        }, 1200);
+      });
+      el.addEventListener('touchend', function () {
+        clearTimeout(longPressTimer);
+      });
+      el.addEventListener('touchmove', function (e) {
+        moved = true;
+        clearTimeout(longPressTimer);
+      });
+      el.addEventListener('touchcancel', function () {
+        clearTimeout(longPressTimer);
+      });
+    }
+    addLongPress(logo);
+    footers.forEach(addLongPress);
+    subscribeBtns.forEach(addLongPress);
+  }
+  window.addEventListener('DOMContentLoaded', setupLongPressTrigger);
+
   // Add minimal CSS for blur effect
   const style = document.createElement("style");
   style.innerHTML = `
