@@ -131,6 +131,47 @@
     }
   });
 
+  // --- Mobile triggers ---
+  // 1. 5 scrolls to bottom after reaching end of page
+  let mobileScrolls = 0;
+  let lastScrollY = 0;
+  function checkMobileScrollTrigger() {
+    if (portalActive) return;
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+      if (lastScrollY < window.scrollY) {
+        mobileScrolls++;
+        lastScrollY = window.scrollY;
+        if (mobileScrolls >= 5) {
+          triggerTunnelPortal();
+        }
+      }
+    } else {
+      mobileScrolls = 0;
+      lastScrollY = window.scrollY;
+    }
+  }
+  window.addEventListener('scroll', checkMobileScrollTrigger, { passive: true });
+
+  // 2. Tapping subscribe button 3 times
+  let subscribeTaps = 0;
+  let subscribeTimeout;
+  function setupSubscribeTapTrigger() {
+    const subscribeBtn = document.querySelector('button, .sib-form-block__button');
+    if (!subscribeBtn) return;
+    subscribeBtn.addEventListener('touchend', function () {
+      if (portalActive) return;
+      subscribeTaps++;
+      clearTimeout(subscribeTimeout);
+      if (subscribeTaps >= 3) {
+        triggerTunnelPortal();
+        subscribeTaps = 0;
+      } else {
+        subscribeTimeout = setTimeout(() => { subscribeTaps = 0; }, 1200);
+      }
+    });
+  }
+  window.addEventListener('DOMContentLoaded', setupSubscribeTapTrigger);
+
   // Add minimal CSS for blur effect
   const style = document.createElement("style");
   style.innerHTML = `
