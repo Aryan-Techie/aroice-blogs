@@ -16,7 +16,7 @@
 - Apps Script handled validation, duplicate checks, and basic error handling.
 - Confirmation emails were sent using Gmail via Apps Script.
 - This approach required maintaining a script, managing CORS, and handling quota limits.
-- All logic was managed in `google-apps-script-template.js` and related files.
+- All logic was managed in `google-apps-script-template.js` and related files. (If the file is not as expected, check the history for changes.)
 
 **Limitations:**
 - Manual setup and deployment of Apps Script
@@ -74,4 +74,4 @@ The subscription form now uses Brevo's embedded form for seamless email collecti
 - 🐦 Twitter: [@aryantechie](https://twitter.com/aryantechie)
 
 
-Created with ❤️ by [Aroice](https://aroice.in) - feel free to contact us!
+Created with ❤️ by [Aroice](https://aroice.in) - feel free to contact me!
