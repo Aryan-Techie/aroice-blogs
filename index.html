@@ -502,98 +502,6 @@
       </footer>
     </div>
 
-    <script>
-      // Global variable to track form submission
-      var submitted = false;
-
-      // Initialize the form when the page loads
-      document.addEventListener("DOMContentLoaded", function () {
-        console.log("Page loaded - setting up form...");
-
-        // Set the current timestamp
-        document.getElementById("timestamp-field").value =
-          new Date().toISOString();
-
-        // Set additional user data for analytics
-        document.getElementById("user-agent-field").value = navigator.userAgent;
-        document.getElementById(
-          "screen-size-field"
-        ).value = `${window.innerWidth}x${window.innerHeight}`;
-
-        // Load configuration
-        fetch("./config.json")
-          .then((response) => {
-            if (!response.ok) throw new Error("Config not available");
-            return response.json();
-          })
-          .then((config) => {
-            console.log("Configuration loaded");
-
-            // Set the form action to the Google Script URL
-            if (config.googleScriptUrl) {
-              document.getElementById("email-form").action =
-                config.googleScriptUrl;
-              console.log("Form action set to:", config.googleScriptUrl);
-            }
-
-            // Set the source domain if available
-            if (config.sourceDomain) {
-              document.getElementById("source-field").value =
-                config.sourceDomain;
-            }
-          })
-          .catch((error) => {
-            console.error("Configuration issue:", error);
-            document.querySelector(".form-message").innerText =
-              "Subscription system is being updated. Please check back soon.";
-            document.querySelector(".form-message").className =
-              "form-message error";
-
-            // Disable the submit button
-            const submitButton = document.querySelector(
-              'button[type="submit"]'
-            );
-            if (submitButton) submitButton.disabled = true;
-          });
-      });
-
-      // Function to show success message after form submission
-      function showSuccess() {
-        console.log("Form submitted successfully");
-
-        // Store in localStorage as backup
-        try {
-          const email = document.getElementById("email").value;
-          const subscribers = JSON.parse(
-            localStorage.getItem("subscribers") || "[]"
-          );
-          subscribers.push({
-            email: email,
-            timestamp: new Date().toISOString(),
-          });
-          localStorage.setItem("subscribers", JSON.stringify(subscribers));
-        } catch (e) {
-          console.error("Error saving to localStorage:", e);
-        }
-
-        // Show success message and reset form
-        setTimeout(function () {
-          document.querySelector(".form-message").innerText =
-            "Thank you! We'll notify you when we launch.";
-          document.querySelector(".form-message").className =
-            "form-message success";
-          document.getElementById("email-form").reset();
-          submitted = false; // Reset submission tracker
-        }, 500);
-      }
-
-      // Email validation function (in case you need it)
-      function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-      }
-    </script>
-
     <!-- START - Brevo Script  -->
     <script>
       window.REQUIRED_CODE_ERROR_MESSAGE = "Please choose a country code";
@@ -630,6 +538,7 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <script src="js/crazy-portal.js"></script>
+    <script src="js/confirm-exit.js"></script>
     <!-- END - Brevo Script  -->
   </body>
 </html>
