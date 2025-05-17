@@ -73,8 +73,5 @@ The subscription form now uses Brevo's embedded form for seamless email collecti
 - 📷 Instagram: [@aryantechie](https://instagram.com/aryantechie)
 - 🐦 Twitter: [@aryantechie](https://twitter.com/aryantechie)
 
-## 📝 License
-
-This project is licensed under the [MIT License](LICENSE).
 
 Created with ❤️ by [Aroice](https://aroice.in) - feel free to contact us!
