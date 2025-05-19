@@ -1,4 +1,4 @@
-# Aroice Blog Subscription System - Setup Guide
+# Aroice™ Blog Subscription System - Setup Guide
 
 ---
 
