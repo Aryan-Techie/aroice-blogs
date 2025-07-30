@@ -2,7 +2,7 @@
 // Triggers on secret key sequences
 (function () {
   // --- CONFIG ---
-  const REDIRECT_URL = "https://insight.aroice.in";
+  const REDIRECT_URL = "https://aryantechie.com/blog";
   const FINAL_BG = "#161618";
   const TRIGGER_SEQUENCES = [
     ["a", "r", "o", "i", "c", "e"],
